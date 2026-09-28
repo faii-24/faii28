@@ -1,0 +1,548 @@
+/* =======================================
+   RESET
+======================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Nunito',sans-serif;
+
+    width:100%;
+
+    height:100vh;
+
+    overflow:hidden;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:linear-gradient(135deg,#ffd6e7,#ffeef5,#fff9fc);
+
+    position:relative;
+
+}
+
+/* =======================================
+   FLOATING HEARTS
+======================================= */
+
+#bg-hearts{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+}
+
+.bgHeart{
+
+    position:absolute;
+
+    color:#ff5c97;
+
+    animation:fall linear forwards;
+
+}
+
+@keyframes fall{
+
+    from{
+
+        transform:translateY(-80px) rotate(0deg);
+
+        opacity:1;
+
+    }
+
+    to{
+
+        transform:translateY(110vh) rotate(360deg);
+
+        opacity:0;
+
+    }
+
+}
+
+/* =======================================
+   WINDOW
+======================================= */
+
+.window{
+
+    width:430px;
+
+    background:#fff;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.15);
+
+    position:relative;
+
+    z-index:2;
+
+    animation:popup .5s;
+
+}
+
+.titlebar{
+
+    height:50px;
+
+    background:#ffc6df;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 18px;
+
+}
+
+.dots{
+
+    display:flex;
+
+    gap:8px;
+
+}
+
+.dots span{
+
+    width:12px;
+
+    height:12px;
+
+    border-radius:50%;
+
+}
+
+.red{
+
+    background:#ff5f57;
+
+}
+
+.yellow{
+
+    background:#febc2e;
+
+}
+
+.green{
+
+    background:#28c840;
+
+}
+
+.title{
+
+    font-weight:800;
+
+    color:#8b3c61;
+
+}
+
+.content{
+
+    padding:35px;
+
+    text-align:center;
+
+}
+/* =======================================
+   CHARACTER
+======================================= */
+
+.character{
+    width:150px;
+    height:150px;
+    margin:0 auto 20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    animation:float 2.5s ease-in-out infinite;
+}
+
+.heart-body{
+    width:90px;
+    height:90px;
+    background:#ff5d9e;
+    position:relative;
+    transform:rotate(-45deg);
+    border-radius:12px;
+    box-shadow:0 12px 25px rgba(255,93,158,.35);
+}
+
+.heart-body::before,
+.heart-body::after{
+    content:"";
+    position:absolute;
+    width:90px;
+    height:90px;
+    background:#ff5d9e;
+    border-radius:50%;
+}
+
+.heart-body::before{
+    top:-45px;
+    left:0;
+}
+
+.heart-body::after{
+    left:45px;
+    top:0;
+}
+
+/* =======================================
+   FACE
+======================================= */
+
+.heart-face{
+    position:absolute;
+    inset:0;
+    transform:rotate(45deg);
+}
+
+.eye{
+    position:absolute;
+    width:7px;
+    height:16px;
+    background:#333;
+    border-radius:20px;
+    top:38px;
+    transition:.2s;
+}
+
+.eye.left{
+    left:28px;
+}
+
+.eye.right{
+    right:28px;
+}
+
+.blush{
+    position:absolute;
+    width:14px;
+    height:8px;
+    background:#ff9fc4;
+    border-radius:50%;
+    top:52px;
+}
+
+.blush.left{
+    left:18px;
+}
+
+.blush.right{
+    right:18px;
+}
+
+.mouth{
+    position:absolute;
+    width:18px;
+    height:10px;
+    border-bottom:3px solid #fff;
+    border-radius:0 0 20px 20px;
+    left:36px;
+    top:58px;
+}
+
+/* =======================================
+   TEXT
+======================================= */
+
+h1{
+    color:#ff4d92;
+    font-size:30px;
+    font-weight:900;
+    margin-bottom:8px;
+}
+
+.subtitle{
+    color:#777;
+    margin-bottom:15px;
+}
+
+#question{
+    color:#ff6a9d;
+    font-size:28px;
+    margin-bottom:30px;
+}
+
+/* =======================================
+   BUTTONS
+======================================= */
+
+.btn-group{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+}
+
+.btn-group button{
+    border:none;
+    border-radius:50px;
+    padding:14px 30px;
+    font-size:17px;
+    font-weight:800;
+    cursor:pointer;
+    transition:.25s;
+}
+
+#yesBtn{
+    background:#ff4d92;
+    color:white;
+}
+
+#yesBtn:hover{
+    transform:scale(1.08);
+    box-shadow:0 10px 20px rgba(255,77,146,.3);
+}
+
+#noBtn{
+    background:#ececec;
+    color:#555;
+}
+
+#noBtn:hover{
+    background:#ddd;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-10px);
+    }
+}
+/* =======================================
+   POPUP
+======================================= */
+
+#popup{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.35);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+    backdrop-filter:blur(6px);
+}
+
+.popup-card{
+    width:340px;
+    background:#fff;
+    border-radius:25px;
+    padding:35px;
+    text-align:center;
+    animation:popup .4s ease;
+    box-shadow:0 20px 45px rgba(0,0,0,.2);
+}
+
+.popup-icon{
+    font-size:65px;
+    margin-bottom:15px;
+}
+
+.popup-card h2{
+    color:#ff4d92;
+    margin-bottom:10px;
+}
+
+.popup-card p{
+    color:#666;
+    margin-bottom:25px;
+    line-height:1.6;
+}
+
+#openLetter{
+    width:100%;
+    border:none;
+    border-radius:50px;
+    padding:14px;
+    background:#ff4d92;
+    color:#fff;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* =======================================
+   LETTER PAGE
+======================================= */
+
+#letterPage{
+    position:fixed;
+    inset:0;
+    background:linear-gradient(135deg,#ffdce9,#fff7fb);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+}
+
+.letterCard{
+    width:90%;
+    max-width:520px;
+    background:white;
+    border-radius:25px;
+    padding:35px;
+    box-shadow:0 25px 50px rgba(0,0,0,.15);
+    animation:popup .45s;
+}
+
+.letterTop{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.letterTop h1{
+    color:#ff4d92;
+}
+
+.letterBody p{
+    margin:12px 0;
+    color:#555;
+    line-height:1.8;
+    font-size:17px;
+}
+
+#backBtn{
+    width:100%;
+    margin-top:25px;
+    border:none;
+    border-radius:50px;
+    padding:15px;
+    background:#ff4d92;
+    color:white;
+    font-size:17px;
+    cursor:pointer;
+}
+
+/* =======================================
+   MUSIC BUTTON
+======================================= */
+
+#musicBtn{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:60px;
+    height:60px;
+    border:none;
+    border-radius:50%;
+    background:#ff4d92;
+    color:white;
+    font-size:24px;
+    cursor:pointer;
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+    z-index:999;
+}
+
+/* =======================================
+   LOADING
+======================================= */
+
+#loading{
+    position:fixed;
+    inset:0;
+    background:#ffdce9;
+    display:flex;
+    justify-content:center;
+    align-items:cente r;
+    z-index:99999;
+}
+
+.loadingBox{
+    text-align:center;
+}
+
+.loadingHeart{
+    font-size:70px;
+    animation:pulse 1s infinite;
+}
+
+.loadingBox h2{
+    margin-top:15px;
+    color:#ff4d92;
+}
+
+.loadingBox span{
+    color:#666;
+}
+
+/* =======================================
+   ANIMATIONS
+======================================= */
+
+@keyframes popup{
+    from{
+        opacity:0;
+        transform:scale(.8);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+@keyframes pulse{
+    0%,100%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.15);
+    }
+}
+
+/* =======================================
+   RESPONSIVE
+======================================= */
+
+@media(max-width:480px){
+
+    .window{
+        width:92%;
+    }
+
+    .character{
+        transform:scale(.9);
+    }
+
+    h1{
+        font-size:25px;
+    }
+
+    #question{
+        font-size:23px;
+    }
+
+    .btn-group{
+        flex-direction:column;
+    }
+
+    .btn-group button{
+        width:100%;
+    }
+}
